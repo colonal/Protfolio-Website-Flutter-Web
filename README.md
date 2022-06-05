@@ -1,16 +1,9 @@
-# flutter_web
+# A Portfolio Website - Flutter Web
 
-A new Flutter project.
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
+A nice clean Portfolio Website for Designer or developers. Which includes almost everything that you want to show. At first, your name and a big picture. Then the About section shows more info about you with a cool experience card. Then the list of Services that you offer. It also has a hire me card then it also has a section where it shows some recent work, then what your clients say about you. At the bottom contact me form.
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### Protfolio Website Final UI
+<br>
+<img src="screenshot/Portfolio.png" alt="portfolio" width="600">
