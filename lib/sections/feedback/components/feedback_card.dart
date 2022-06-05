@@ -19,6 +19,7 @@ class _FeedbackCardState extends State<FeedbackCard> {
   Duration duration = const Duration(milliseconds: 200);
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return InkWell(
       onTap: () {},
       onHover: (value) {
@@ -29,7 +30,7 @@ class _FeedbackCardState extends State<FeedbackCard> {
       child: AnimatedContainer(
         duration: duration,
         height: 350,
-        width: 350,
+        width: size.width < 705 ? size.width * 0.4 : 350,
         decoration: BoxDecoration(
             color: feedbacks[widget.index].color,
             borderRadius: BorderRadius.circular(10),
@@ -56,10 +57,9 @@ class _FeedbackCardState extends State<FeedbackCard> {
                     Text(
                       feedbacks[widget.index].name,
                       textAlign: TextAlign.center,
-                      style: Theme.of(context)
-                          .textTheme
-                          .headline5
-                          ?.copyWith(fontWeight: FontWeight.bold),
+                      style: Theme.of(context).textTheme.headline5?.copyWith(
+                          fontWeight: FontWeight.bold,
+                          fontSize: size.width < 705 ? 16 : null),
                     ),
                   ],
                 ),

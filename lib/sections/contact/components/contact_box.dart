@@ -26,6 +26,7 @@ class ContactBox extends StatelessWidget {
         children: [
           Wrap(
             spacing: kDefaultPadding,
+            runSpacing: kDefaultPadding,
             children: const [
               SocalCard(
                 text: "The Flutter Wat",

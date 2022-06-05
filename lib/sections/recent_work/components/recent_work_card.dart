@@ -28,52 +28,83 @@ class _RecentWorkCardState extends State<RecentWorkCard> {
       },
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 200),
-        height: 320,
-        width: 540,
+        width: size.width < 705 ? size.width * 0.3 : 540,
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(10),
           boxShadow: [if (isHover) kDefaultShadow],
         ),
-        child: Row(
-          children: [
-            size.height < 912
-                ? Image.asset(
+        child: size.width < 705
+            ? Column(
+                children: [
+                  Image.asset(
                     recentWorks[widget.index].image,
-                  )
-                : Image.asset(
-                    recentWorks[widget.index].image,
-                    width: size.width * 0.4,
-                    height: double.infinity,
+                    height: 150,
+                    width: double.infinity,
+                    fit: BoxFit.fill,
                   ),
-            Expanded(
-              child: Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: kDefaultPadding),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(recentWorks[widget.index].category.toUpperCase()),
-                    const SizedBox(height: kDefaultPadding / 2),
-                    Text(
-                      recentWorks[widget.index].title,
-                      style: Theme.of(context)
-                          .textTheme
-                          .headline5
-                          ?.copyWith(height: 1.5),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: kDefaultPadding, vertical: kDefaultPadding),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(recentWorks[widget.index].category.toUpperCase()),
+                        const SizedBox(height: kDefaultPadding / 2),
+                        Text(
+                          recentWorks[widget.index].title,
+                          style: Theme.of(context)
+                              .textTheme
+                              .headline5
+                              ?.copyWith(height: 1.5),
+                        ),
+                        const SizedBox(height: kDefaultPadding),
+                        const Text(
+                          "View Details",
+                          style:
+                              TextStyle(decoration: TextDecoration.underline),
+                        )
+                      ],
                     ),
-                    const SizedBox(height: kDefaultPadding),
-                    const Text(
-                      "View Details",
-                      style: TextStyle(decoration: TextDecoration.underline),
-                    )
-                  ],
-                ),
+                  ),
+                ],
+              )
+            : Row(
+                children: [
+                  Image.asset(
+                    recentWorks[widget.index].image,
+                  ),
+                  Expanded(
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: kDefaultPadding),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                              recentWorks[widget.index].category.toUpperCase()),
+                          const SizedBox(height: kDefaultPadding / 2),
+                          Text(
+                            recentWorks[widget.index].title,
+                            style: Theme.of(context)
+                                .textTheme
+                                .headline5
+                                ?.copyWith(height: 1.5),
+                          ),
+                          const SizedBox(height: kDefaultPadding),
+                          const Text(
+                            "View Details",
+                            style:
+                                TextStyle(decoration: TextDecoration.underline),
+                          )
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
               ),
-            ),
-          ],
-        ),
       ),
     );
   }

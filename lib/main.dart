@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
         inputDecorationTheme: kDefaultInputDecorationTheme,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: const HomeScreen(),
+      home: HomeScreen(),
     );
   }
 }

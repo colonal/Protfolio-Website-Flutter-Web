@@ -23,30 +23,41 @@ class _MenuState extends State<Menu> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: kDefaultPadding * 2.5),
-      constraints: BoxConstraints(maxWidth: size.width < 1110 ? 600 : 1110),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: const BorderRadius.only(
-          topLeft: Radius.circular(10),
-          topRight: Radius.circular(10),
-        ),
-        boxShadow: [
-          kDefaultShadow,
+
+    return SizedBox(
+      width: size.width,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Container(
+            padding:
+                const EdgeInsets.symmetric(horizontal: kDefaultPadding * 2.5),
+            constraints:
+                BoxConstraints(maxWidth: size.width < 1110 ? 700 : 1110),
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: const BorderRadius.only(
+                topLeft: Radius.circular(10),
+                topRight: Radius.circular(10),
+              ),
+              boxShadow: [
+                kDefaultShadow,
+              ],
+            ),
+            child: Padding(
+              padding: const EdgeInsets.only(top: kDefaultPadding * 0.6),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  ...menuItmes.map((e) {
+                    int index = menuItmes.indexOf(e);
+                    return buildMenuItem(e, index, size);
+                  }).toList()
+                ],
+              ),
+            ),
+          ),
         ],
-      ),
-      child: Padding(
-        padding: const EdgeInsets.only(top: kDefaultPadding * 0.6),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            ...menuItmes.map((e) {
-              int index = menuItmes.indexOf(e);
-              return buildMenuItem(e, index, size);
-            }).toList()
-          ],
-        ),
       ),
     );
   }

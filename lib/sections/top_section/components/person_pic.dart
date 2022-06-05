@@ -13,8 +13,10 @@ class PersonPic extends StatelessWidget {
         right: 0,
         child: Container(
           constraints: BoxConstraints(
-              maxWidth: size.width < 1000 ? 400 : 639,
-              maxHeight: size.width < 1206.0 ? 550 : 860),
+              maxWidth: size.width * 0.4, //size.width < 1000 ? 400 : 639,
+              maxHeight:
+                  size.width * 0.4 // size.width < 800 ? size.width * 0.2 : 860,
+              ),
           decoration: const BoxDecoration(
               image: DecorationImage(
                   image: AssetImage("assets/images/person.png"))),

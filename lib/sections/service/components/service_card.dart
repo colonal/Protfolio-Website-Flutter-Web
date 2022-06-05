@@ -17,8 +17,10 @@ class ServiceCard extends StatefulWidget {
 class _ServiceCardState extends State<ServiceCard> {
   bool isHover = false;
   Duration duration = const Duration(milliseconds: 200);
+
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return InkWell(
       onTap: () {},
       onHover: (value) {
@@ -31,7 +33,7 @@ class _ServiceCardState extends State<ServiceCard> {
         duration: duration,
         margin: const EdgeInsets.symmetric(vertical: kDefaultPadding * 2),
         height: 256,
-        width: 256,
+        width: size.width < 705 ? size.width * 0.4 : 256,
         decoration: BoxDecoration(
           color: widget.services.color,
           borderRadius: BorderRadius.circular(10),

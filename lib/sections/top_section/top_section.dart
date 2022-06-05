@@ -12,7 +12,7 @@ class TopSection extends StatelessWidget {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Container(
-      constraints: const BoxConstraints(maxHeight: 900, minHeight: 700),
+      height: size.width > 1002 ? 900 : (size.width < 705 ? 300 : 700),
       width: double.infinity,
       alignment: Alignment.center,
       decoration: const BoxDecoration(
@@ -28,7 +28,7 @@ class TopSection extends StatelessWidget {
           children: [
             LogoAndBlurBox(size: size),
             const PersonPic(),
-            const Positioned(bottom: 0, child: Menu())
+            if (size.width > 705) const Positioned(bottom: 0, child: Menu())
           ],
         ),
       ),
